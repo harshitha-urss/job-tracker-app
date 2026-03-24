@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Checklist</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<div class="ds-shell">
+
+<header class="ds-header">
+  <div class="ds-header__inner">
+    <h1>Job Notification App</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="saved.html">Saved</a>
+      <a href="digest.html">Digest</a>
+      <a href="settings.html">Settings</a>
+      <a href="proof.html">Proof</a>
+      <a href="test.html" class="active">Test</a>
+    </nav>
+  </div>
+</header>
+
+<main class="ds-container">
+
+<section class="ds-card">
+<h2>Verification Checklist</h2>
+
+<p id="progress">Tests Passed: 0 / 10</p>
+
+<div id="checklist"></div>
+
+<button onclick="resetTest()" class="ds-btn">Reset Test Status</button>
+
+<p id="warning" style="color:red;"></p>
+
+</section>
+
+</main>
+
+</div>
+
+<script>
+const items = [
+"Preferences persist after refresh",
+"Match score calculates correctly",
+"Show only matches toggle works",
+"Save job persists after refresh",
+"Apply opens in new tab",
+"Status update persists after refresh",
+"Status filter works correctly",
+"Digest generates top jobs",
+"Digest persists for the day",
+"No console errors"
+];
+
+const key = "jobTrackerTestStatus";
+
+function loadChecklist(){
+  const saved = JSON.parse(localStorage.getItem(key)) || {};
+  const container = document.getElementById("checklist");
+
+  container.innerHTML = items.map((item,i)=>`
+    <label>
+      <input type="checkbox" onchange="toggle(${i})" ${saved[i] ? "checked" : ""}>
+      ${item}
+    </label><br><br>
+  `).join("");
+
+  updateProgress();
+}
+
+function toggle(i){
+  const saved = JSON.parse(localStorage.getItem(key)) || {};
+  saved[i] = !saved[i];
+  localStorage.setItem(key, JSON.stringify(saved));
+  updateProgress();
+}
+
+function updateProgress(){
+  const saved = JSON.parse(localStorage.getItem(key)) || {};
+  const count = Object.values(saved).filter(v=>v).length;
+
+  document.getElementById("progress").innerText =
+    `Tests Passed: ${count} / 10`;
+
+  document.getElementById("warning").innerText =
+    count < 10 ? "Resolve all issues before shipping!" : "";
+}
+
+function resetTest(){
+  localStorage.removeItem(key);
+  loadChecklist();
+}
+
+loadChecklist();
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<div class="ds-shell">
+
+<header class="ds-header">
+    <div class="ds-header__inner">
+        <h1>Job Notification App</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="saved.html">Saved</a>
+            <a href="digest.html" class="active">Digest</a>
+            <a href="settings.html">Settings</a>
+            <a href="proof.html">Proof</a>
+            <a href="test.html">Test</a>
+        </nav>
+    <button onclick="toggleDarkMode()" class="ds-btn">🌙</button>
+    </div>
+</header>
+
+<main class="ds-container">
+
+    <section class="ds-card">
+        <h2>Daily Digest</h2>
+        <button onclick="generateDigest()" class="ds-btn ds-btn--primary">
+            Generate Today's 9AM Digest
+        </button>
+
+        <div style="margin-top:15px;">
+            <div id="digest-container"></div>
+        </div>
+
+    </section>
+
+</main>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

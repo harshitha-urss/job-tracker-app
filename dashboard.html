@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="ds-shell">
+
+<header class="ds-header">
+  <div class="ds-header__inner">
+    <h1>Job Notification App</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="saved.html">Saved</a>
+      <a href="digest.html">Digest</a>
+      <a href="settings.html">Settings</a>
+      <a href="proof.html">Proof</a>
+      <a href="test.html">Test</a>
+
+      <button onclick="toggleDarkMode()">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<main class="ds-container">
+
+<label>
+  <input type="checkbox" id="matchToggle">
+  Show only jobs above my threshold
+</label>
+
+<div class="filters">
+
+  <input type="text" id="search" placeholder="Search jobs">
+
+  <select id="locationFilter">
+    <option value="All">All Locations</option>
+    <option>Bangalore</option>
+    <option>Hyderabad</option>
+    <option>Chennai</option>
+    <option>Pune</option>
+    <option>Remote</option>
+  </select>
+
+  <select id="modeFilter">
+    <option value="All">All Modes</option>
+    <option>Remote</option>
+    <option>Hybrid</option>
+    <option>Onsite</option>
+  </select>
+
+  <select id="experienceFilter">
+    <option value="All">All Experience</option>
+    <option>Fresher</option>
+    <option>0-1</option>
+    <option>1-3</option>
+    <option>3-5</option>
+  </select>
+
+  <select id="sourceFilter">
+    <option value="All">All Sources</option>
+    <option>LinkedIn</option>
+    <option>Naukri</option>
+    <option>Indeed</option>
+  </select>
+
+  <select id="sortFilter">
+    <option value="latest">Latest</option>
+    <option value="match">Match Score</option>
+    <option value="salary">Salary</option>
+  </select>
+
+  <select id="statusFilter">
+    <option value="All">All Status</option>
+    <option>Not Applied</option>
+    <option>Applied</option>
+    <option>Rejected</option>
+    <option>Selected</option>
+  </select>
+
+</div>
+
+<div id="job-list"></div>
+
+</main>
+
+</div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeModal">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+    <p id="modal-skills"></p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

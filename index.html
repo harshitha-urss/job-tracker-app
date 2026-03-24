@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<div class="ds-shell">
+
+<header class="ds-header">
+    <div class="ds-header__inner">
+        <h1>Job Notification App</h1>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="saved.html">Saved</a>
+            <a href="digest.html">Digest</a>
+            <a href="settings.html">Settings</a>
+            <a href="proof.html">Proof</a>
+            <a href="test.html">Test</a>
+        </nav>
+    <button onclick="toggleDarkMode()" class="ds-btn">🌙</button>
+    </div>
+</header>
+
+<main class="ds-container">
+
+    <section class="ds-card">
+        <h2>Stop Missing The Right Jobs.</h2>
+
+        <p class="ds-lead">
+            Precision-matched job discovery delivered daily at 9AM.
+        </p>
+
+        <a href="settings.html" class="ds-btn ds-btn--primary">
+            Start Tracking
+        </a>
+    </section>
+<input type="text" id="search" placeholder="Search jobs">
+</main>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
